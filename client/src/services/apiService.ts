@@ -1,0 +1,83 @@
+import { IService } from "../component/AddServices";
+import { getToken, verifyToken } from "./auth";
+
+
+const serverUrl = 'http://localhost:3000/';
+
+export const handleRequest =
+function (endPoint: string, data: object) : Promise<Response>{
+
+    return fetch(`${serverUrl}${endPoint}`, {
+
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {'Content-Type': 'application/json'},
+               
+    });
+
+}
+
+export const patchRequest =
+    function (endPoint: string, data: object): Promise<Response> {
+
+        return fetch(`${serverUrl}${endPoint}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+                'x-auth-token': getToken(),
+            },
+            body: JSON.stringify(data)
+        });
+    }
+
+export const getRequest =
+    function (endPoint: string): Promise<Response> | null {
+        if (!verifyToken()) {
+            return null;
+        }
+
+        return fetch(`${serverUrl}${endPoint}`, {
+            method: 'GET',
+           // mode: "no-cors"
+            // headers: {
+            //     'x-auth-token': getToken()
+            // }
+        })
+    }
+
+    export const getServicesApi = 
+    function (): Promise<Response> | null {
+        if (!verifyToken()) {
+            return null;
+        }
+        
+        return fetch(`${serverUrl}services`);
+    }
+    
+    export const addServiceApi = 
+    function(service: IService): Promise<Response> | null {
+        if (!verifyToken()) {
+            return null;
+        }
+        return fetch(`${serverUrl}services`, {
+                    method: "post",
+                    headers: {
+                         "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(service),
+                 })
+    }
+
+    export const deleteServiceApi = 
+    function(id: string): Promise<Response> | null {
+        if (!verifyToken()) {
+            return null;
+        }
+        return  fetch(`${serverUrl}services`, {
+            method: "delete",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ _id: id }),
+          })
+    }
