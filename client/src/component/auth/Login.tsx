@@ -1,9 +1,10 @@
 import { useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import Joi from "joi";
 import { handleRequest } from "../../services/apiService";
 import { TOKEN_KEY } from "../../services/auth";
 import { useFormik } from "formik";
+import './Login.css'
 
 
 export interface IErrors {
@@ -67,12 +68,13 @@ function Login() {
     <>
 
 
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} className='loginForm'>
       
-      <p>Login</p>
+      <p className="login">Login</p>
       <div>
         <input
           ref={inputRef}
+          className="loginInput"
           type="text"
           placeholder="Email"
           id="email"
@@ -90,6 +92,7 @@ function Login() {
       <div>
         <input
           type="password"
+          className="loginInput"
           placeholder="Password"
           id="password"
           name="password"
@@ -103,11 +106,15 @@ function Login() {
         <div className="">{formik.errors.password}</div>
       ) : null}
 
-      <button type="submit" className="">
+      <button type="submit" className="loginButton">
         Login
       </button>
+      <br />
+      {/* <button className="loginButton"> */}
+      <Link to='/' className='signUp'>Sign up</Link>
+      {/* </button> */}
     </form>
-
+    
 
 
     </>
