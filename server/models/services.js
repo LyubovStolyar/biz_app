@@ -8,6 +8,9 @@ const serviceSchema = {
   status: {
     type: String,
     require: true,
+  },
+  msg: {
+    type: String
   }
 };
 

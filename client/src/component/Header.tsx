@@ -1,24 +1,26 @@
+import { BiStore } from "react-icons/bi";
 import { Link, NavLink } from "react-router-dom";
 import LogOut from "./auth/Logout";
-import Title from "./Title";
 import "./Header.css";
+
 
 function Header() {
   return (
     <>
-      <div className="headerStyle">
-        <div className="headCont">
-        <span> <Link to="/home" className="headLink">Home</Link></span>
-        <span> <Link to="/services" className="headLink">Services</Link></span>
-        <span> <NavLink to="/about" className="headLink">About</NavLink></span>
+    <div className="headerStyle">
+        <div className="headLeft">
+          <i className="icon">< BiStore/></i>
+          <Link to="/home" className="headLink">Home</Link>
+          <Link to="/services" className="headLink">Services</Link>
+          <NavLink to="/about" className="headLink">About</NavLink>
         </div>
 
-        <div>
-         <span> <Link to="/login" className="headLink">Log in</Link></span>
-         <span className="headLink"><LogOut/></span> 
+        <div className="headRight">
+         <Link to="/login" className="headLink">Log in</Link>
+         <div className="headLink"><LogOut/> 
         </div>
-      </div>
-      <Title text="" />
+    </div>
+    </div>
     </>
   );
 }

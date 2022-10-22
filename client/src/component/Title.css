@@ -1,0 +1,17 @@
+.title{
+    height: 15vh;
+    background-color: rgb(237, 235, 248);
+    text-align: center;
+ 
+}
+.title h1{
+    color: rgb(183, 12, 12);
+font-size: 2.5rem;
+padding: 10px;
+font-family:Verdana, Geneva, Tahoma, sans-serif
+}
+.title h2{
+    color: rgb(135, 59, 59);
+    font-size: 1.7rem;
+
+}

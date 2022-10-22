@@ -38,10 +38,6 @@ export const getRequest =
 
         return fetch(`${serverUrl}${endPoint}`, {
             method: 'GET',
-           // mode: "no-cors"
-            // headers: {
-            //     'x-auth-token': getToken()
-            // }
         })
     }
 
@@ -61,6 +57,20 @@ export const getRequest =
         }
         return fetch(`${serverUrl}services`, {
                     method: "post",
+                    headers: {
+                         "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify(service),
+                 })
+    }
+
+    export const updateService =  
+    function(service: IService): Promise<Response> | null {
+        if (!verifyToken()) {
+            return null;
+        }
+        return fetch(`${serverUrl}services`, {
+                    method: "put",
                     headers: {
                          "Content-Type": "application/json",
                     },

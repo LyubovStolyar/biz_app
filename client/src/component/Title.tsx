@@ -1,3 +1,4 @@
+import './Title.css';
 
 interface Props {
     text?: string;
@@ -8,7 +9,7 @@ function Title(props: Props) {
     return ( 
 
 
-        <div className="">{props.children}</div>
+        <div className="title">{props.children}</div>
 
      );
 }

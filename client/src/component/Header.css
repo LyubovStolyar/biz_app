@@ -1,18 +1,43 @@
+
 .headerStyle{
-    height: 5vh;
+    height: 8vh;
     display: flex;
     justify-content: space-between;
     background-color: rgb(173, 174, 204);
-    color: aliceblue;
-
+    color: rgb(30, 83, 130);
+    /* margin: 0 auto ; */
+    align-items: center
    }
-.headCont{
-   
-  
-}
-span .headLink{
-    font-size: 1rem;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
 
+.headLink{
+    font-size: 80%;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    padding: 8px;
+    text-decoration: none;
+    color: rgb(30, 83, 130);
+    font-size: 1.3rem;
+    text-align: center;
+}
+.headRight{
+    width: 50%;
     padding: 10px;
+    display: flex;
+    justify-content: flex-end
+}
+
+.headLeft{
+    width: 50%;
+    /* font-size: 1.5rem; */
+   padding: 10px;
+   /* margin: 0 auto; */
+   /* left: 1vw; */
+   /* text-align: center; */
+ }
+.icon{
+   font-size: 1.8rem;
+   color: rgb(30, 83, 130);;
+
+}
+.headLink:hover{
+    color: azure;
 }

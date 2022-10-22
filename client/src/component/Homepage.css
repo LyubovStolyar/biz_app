@@ -5,5 +5,5 @@
 .list {
     display: flex;
     flex-direction: column;
-    max-width: 600px;
+    max-width: 500px;
 }

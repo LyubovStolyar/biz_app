@@ -1,15 +1,15 @@
 
-import { string } from "joi";
+
 import React from "react";
 import { getServicesApi, addServiceApi, deleteServiceApi } from "../services/apiService";
 import Header from "./Header";
 import Table from "./Table";
-
-// export type StatusType = "active" | "disabled";
+import Title from "./Title";
 
 export interface IService {
   serviceName: ServiceNames;
   status: Status;
+  msg?: string;
   _id?: string;
 }
 
@@ -24,9 +24,14 @@ export enum Status {
   "Disable"
 }
 
+export const statuses =  Object.entries(Status);
+statuses.length = statuses.length / 2;
+
+export const serviceNames = Object.entries(ServiceNames);
+serviceNames.length = serviceNames.length / 2;
+
 interface ServiceState {
   services: Array<IService>;
- // serviceNames: Array<string>;
 }
 
 class AddServises extends React.Component <{}, ServiceState> {
@@ -37,16 +42,8 @@ class AddServises extends React.Component <{}, ServiceState> {
       services: [],
     };
 
-    this.serviceNames = Object.entries(ServiceNames);
-    this.serviceNames.length = this.serviceNames.length / 2;
-      
-    this.statuses = Object.entries(Status);
-    this.statuses.length = this.statuses.length / 2;
-
   }
 
-  serviceNames;
-  statuses;
   newService : IService = {serviceName: 0, status: 0};
 
   componentDidMount() {
@@ -58,7 +55,9 @@ class AddServises extends React.Component <{}, ServiceState> {
         services: json,
       }));
     }); 
-   }
+   }else{
+    window.open("/login",'_self');
+  }
       
   }
 
@@ -71,6 +70,9 @@ class AddServises extends React.Component <{}, ServiceState> {
           services: [...this.state.services, json]
         }))
     });
+    }
+    else{
+      window.open("/login",'_self');
     }
   }
 
@@ -87,6 +89,8 @@ class AddServises extends React.Component <{}, ServiceState> {
               services: updated
              }));
             });
+          }else{
+            window.open("/login",'_self');
           }
       };
 
@@ -97,19 +101,22 @@ class AddServises extends React.Component <{}, ServiceState> {
     return (
       <>
         <Header />
-
+<Title>
+  <h1>Services</h1>
+  <h2>Choose service that you would like to get</h2>
+</Title>
        
         {/* <form action=""> */}
           <span>Service Name:</span>
           <select onChange={(e) => this.newService.serviceName = Number.parseInt(e.target.value)}>
-           { this.serviceNames.map((s)=>
+           { serviceNames.map((s)=>
             <option value={s[0]} key={s[0]}>{s[1]}</option>)}
         
           </select>
 
           <span>Status:</span>
           <select onChange = {(e) => this.newService.status = Number.parseInt(e.target.value)}>
-          { this.statuses.map((s)=>
+          { statuses.map((s)=>
             <option value={s[0]} key={s[0]}>{s[1]}</option>)}
           </select>
 

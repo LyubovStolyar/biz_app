@@ -1,4 +1,5 @@
 import React from "react";
+import { BiTrash } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import { IService, ServiceNames, Status } from "./AddServices";
 
@@ -29,14 +30,14 @@ deleteService: Function
             {props.services.map((s) => (
               <tr key={s._id}>
                 <td>
-                    <NavLink to="/update">{ServiceNames[s.serviceName]}</NavLink>
+                    <NavLink to="/update" state={s}>{ServiceNames[s.serviceName]}</NavLink>
                 </td>
                 <td>{Status[s.status]}</td>
                 <td>
                   <button
                     onClick={() => props.deleteService(s._id)}
                     className="">
-                    <i className="bi-trash3"></i>
+                    <i className=""><BiTrash/></i>
                   </button>
                 </td>
               </tr>
