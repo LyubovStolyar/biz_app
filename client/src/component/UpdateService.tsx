@@ -43,9 +43,9 @@ function UpdateService() {
       </select>
       <p></p>
       <textarea onChange={(e) => (service.msg = e.target.value)}>
-        {service.msg}
+        {/* {service.msg} */}
       </textarea>
-      <button onClick={updateButtonHandler}>Update Service</button>
+      <button onClick={updateButtonHandler} >Update Service</button>
       <NavLink to="/services">Delete</NavLink>
     </>
   );
