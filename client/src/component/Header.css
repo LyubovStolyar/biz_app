@@ -3,18 +3,18 @@
     height: 8vh;
     display: flex;
     justify-content: space-between;
-    background-color: rgb(173, 174, 204);
-    color: rgb(30, 83, 130);
+    background-color: rgb(120, 67, 67);
+    color: rgb(120, 76, 76);
     /* margin: 0 auto ; */
     align-items: center
    }
 
 .headLink{
-    font-size: 80%;
+    /* font-size: 80%; */
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     padding: 8px;
     text-decoration: none;
-    color: rgb(30, 83, 130);
+    color: rgb(214, 214, 214);
     font-size: 1.3rem;
     text-align: center;
 }
@@ -27,17 +27,15 @@
 
 .headLeft{
     width: 50%;
-    /* font-size: 1.5rem; */
    padding: 10px;
-   /* margin: 0 auto; */
-   /* left: 1vw; */
-   /* text-align: center; */
  }
+ 
 .icon{
    font-size: 1.8rem;
-   color: rgb(30, 83, 130);;
+   color: rgb(206, 185, 186);
 
 }
 .headLink:hover{
-    color: azure;
+    color: rgb(255, 255, 255);
+    font-size: 1.4rem;
 }

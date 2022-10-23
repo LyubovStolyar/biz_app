@@ -45,7 +45,7 @@ function UpdateService() {
       <textarea onChange={(e) => (service.msg = e.target.value)}>
         {/* {service.msg} */}
       </textarea>
-      <button onClick={updateButtonHandler} >Update Service</button>
+      <button type="submit" onClick={updateButtonHandler} disabled={!service.msg}>Update Service</button>
       <NavLink to="/services">Delete</NavLink>
     </>
   );

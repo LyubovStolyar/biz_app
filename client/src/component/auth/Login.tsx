@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Joi from "joi";
 import { handleRequest } from "../../services/apiService";
 import { TOKEN_KEY } from "../../services/auth";
@@ -10,8 +10,6 @@ import './Login.css'
 export interface IErrors {
   [key: string]: string;
 }
-
-// this page demonstrates the use of Formik and joi
 
 function Login() {
   const navigate = useNavigate();
@@ -24,7 +22,7 @@ function Login() {
     }, []);
 
   const formik = useFormik({
-    // assign default value to field
+
     initialValues: {
       email: "",
       password: "",
@@ -66,8 +64,6 @@ function Login() {
 
   return (
     <>
-
-
     <form onSubmit={formik.handleSubmit} className='loginForm'>
       
       <p className="login">Login</p>
@@ -110,13 +106,10 @@ function Login() {
         Login
       </button>
       <br />
-      {/* <button className="loginButton"> */}
       <Link to='/' className='signUp'>Sign up</Link>
-      {/* </button> */}
+
     </form>
     
-
-
     </>
   );
 }

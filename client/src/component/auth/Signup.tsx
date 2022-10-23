@@ -1,8 +1,7 @@
-import { useEffect, useRef, useState } from "react";
 import { handleRequest } from "../../services/apiService";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
-import Joi, { bool } from "joi";
+import Joi from "joi";
 import './Signup.css';
 
 export interface IErrors {
