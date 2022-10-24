@@ -22,8 +22,6 @@ interface MenuProps {
 class Homepage extends React.Component<MenuProps, IState> {
   unSortedCards: Array<CardType> = [];
 
-
-
   componentDidMount(): void {
     const res = getRequest("cards");
 
@@ -40,7 +38,7 @@ class Homepage extends React.Component<MenuProps, IState> {
           cards: json,
         }));
       });
-  };
+  }
 
   changeDisplay = (mode: displayMode) => {
     this.setState(() => ({
@@ -51,7 +49,6 @@ class Homepage extends React.Component<MenuProps, IState> {
   displayBtnCss = (mode: displayMode): string => {
     return mode === this.state.display ? "list" : "grid";
   };
-
 
   filterCards = (value: string): void => {
     value = value.toLowerCase();
@@ -76,27 +73,41 @@ class Homepage extends React.Component<MenuProps, IState> {
           <h2>Advertizing your business</h2>
         </Title>
 
-        <div>
-          <input
-            type="text"
-            onChange={(e) => this.filterCards(e.target.value)}
-            placeholder="Search by business name">
+        <div className="homeCont">
+          <div className="searchCont">
+            <input
+              className="inputSearch"
+              type="text"
+              onChange={(e) => this.filterCards(e.target.value)}
+              placeholder="Search by business name"
+            ></input>
+            <div className="iconSearch">
+              <i>
+                <BiSearchAlt />
+              </i>
+            </div>
+          </div>
 
-            </input>
-          <i><BiSearchAlt /></i>
+          <div className="homeButtons">
+            <button
+              onClick={(e) => this.changeDisplay(displayMode.list)}
+              className={"list"}
+            >
+              <i className="iconHomepage">
+                <BiListUl />
+              </i>
+            </button>
+
+            <button
+              onClick={(e) => this.changeDisplay(displayMode.grid)}
+              className={"grid"}
+            >
+              <i className="iconHomepage">
+                <BiGrid />
+              </i>
+            </button>
+          </div>
         </div>
-
-        <button
-          onClick={(e) => this.changeDisplay(displayMode.list)}
-          className={"list"}>
-          <i><BiListUl /></i>
-        </button>
-
-        <button onClick={(e) => this.changeDisplay(displayMode.grid)}
-          className={"grid"}>
-          <i className=""><BiGrid /></i>
-        </button>
-
         {this.state?.cards != null && (
           <div className={this.state.display}>
             {this.state.cards.map((e) => (
@@ -107,8 +118,6 @@ class Homepage extends React.Component<MenuProps, IState> {
       </>
     );
   }
-
- 
 }
 
 export default Homepage;

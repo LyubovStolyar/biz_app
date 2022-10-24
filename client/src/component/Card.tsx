@@ -1,6 +1,7 @@
 import React from "react";
+import { BiPhone } from "react-icons/bi";
 import { Link } from "react-router-dom";
-import { getRequest } from "../services/apiService";
+import "./Card.css";
 
 export type CardType = {
   _id: string;
@@ -25,23 +26,20 @@ class Card extends React.Component<Props, State> {
 
     return (
       <>
-        <img src={data.imageUrl} alt={data.name} className="" />
-        {/* <button
-                onClick={() => this.props.categoryChange(data.category)} className='text-capitalize badge bg-info border-0'>
-                {data.category}
-            </button> */}
-        <div className="">
-          <div className="">{data.name}</div>
-          <div className="">{data.description}</div>
-          <div>
-            <i className=""></i>
+        <div className="cardCont">
+          <img src={data.imageUrl} alt={data.name} className="cardPhoto" />
+          <div className="cardName">{data.name}</div>
+          <div className="cardDesc">{data.description}</div>
+          <div className="cardPhone">
+            <i><BiPhone /></i>
             {data.phone}
           </div>
-          <div>{data.adress}</div>
-
-          <Link to="/about" state={data.url} className="">
-            To Website
-          </Link>
+          <div className="cardAdress">{data.adress}</div>
+          <button className="cardLinkButton">
+            <Link to="/about" state={data.url} className="cardLink">
+              To Website
+            </Link>
+          </button>
         </div>
       </>
     );
