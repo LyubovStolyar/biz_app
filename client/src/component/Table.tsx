@@ -2,11 +2,7 @@ import React from "react";
 import { BiTrash } from "react-icons/bi";
 import { NavLink } from "react-router-dom";
 import { IService, ServiceNames, Status } from "./AddServices";
-
-// export type StatusType = {
-//     status: "active" | "disabled";
-//     service: string;
-// }
+import './Table.css'
 
 interface Props {
 services: Array<IService>;
@@ -18,9 +14,9 @@ deleteService: Function
         return ( 
 
             <>
-            <table>
-                <thead>
-              <tr>
+            <table className="servicesTable">
+                <thead className="tableHead">
+              <tr className="">
             <th>Service</th>
             <th> Status</th>
             <th></th>
@@ -30,14 +26,14 @@ deleteService: Function
             {props.services.map((s) => (
               <tr key={s._id}>
                 <td>
-                    <NavLink to="/update" state={s}>{ServiceNames[s.serviceName]}</NavLink>
+                    <NavLink to="/update" className={'serviceNav'} state={s}>{ServiceNames[s.serviceName]}</NavLink>
                 </td>
-                <td>{Status[s.status]}</td>
+                <td className='serviceStatus' >{Status[s.status]}</td>
                 <td>
-                  <button
+                  <button className="serviceIconButton"
                     onClick={() => props.deleteService(s._id)}
-                    className="">
-                    <i className=""><BiTrash/></i>
+                   >
+                    <i className="serviceIcon"><BiTrash/></i>
                   </button>
                 </td>
               </tr>

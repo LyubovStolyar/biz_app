@@ -1,10 +1,9 @@
-
-
 import React from "react";
 import { getServicesApi, addServiceApi, deleteServiceApi } from "../services/apiService";
 import Header from "./Header";
 import Table from "./Table";
 import Title from "./Title";
+import './AddServices.css';
 
 export interface IService {
   serviceName: ServiceNames;
@@ -106,23 +105,23 @@ class AddServises extends React.Component <{}, ServiceState> {
   <h2>Choose service that you would like to get</h2>
 </Title>
        
-        {/* <form action=""> */}
-          <span>Service Name:</span>
-          <select onChange={(e) => this.newService.serviceName = Number.parseInt(e.target.value)}>
+       <div className="serviceCont">
+          <div className="serviceTitle">Service Name:</div>
+          <select className="serviceNames" onChange={(e) => this.newService.serviceName = Number.parseInt(e.target.value)}>
            { serviceNames.map((s)=>
-            <option value={s[0]} key={s[0]}>{s[1]}</option>)}
+            <option className='optionServices' value={s[0]} key={s[0]}>{s[1]}</option>)}
         
           </select>
 
-          <span>Status:</span>
-          <select onChange = {(e) => this.newService.status = Number.parseInt(e.target.value)}>
+          <div className="serviceStatusTitle">Status:</div>
+          <select className="serviceStatusNames" onChange = {(e) => this.newService.status = Number.parseInt(e.target.value)}>
           { statuses.map((s)=>
-            <option value={s[0]} key={s[0]}>{s[1]}</option>)}
+            <option className='optionServices' value={s[0]} key={s[0]}>{s[1]}</option>)}
           </select>
 
-          <button onClick={() => this.addService(this.newService)}>Add service</button>
+          <button className="serviceStatusButton" onClick={() => this.addService(this.newService)}>Add service</button>
 
-        {/* </form> */}
+          </div>
 
      <Table services={this.state.services} deleteService={this.deleteService}/>
        

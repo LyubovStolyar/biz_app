@@ -47,7 +47,7 @@ class Homepage extends React.Component<MenuProps, IState> {
   };
 
   displayBtnCss = (mode: displayMode): string => {
-    return mode === this.state.display ? "list" : "grid";
+    return mode === this.state.display ? "grid" : "list";
   };
 
   filterCards = (value: string): void => {

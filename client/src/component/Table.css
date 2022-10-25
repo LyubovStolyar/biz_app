@@ -1,0 +1,43 @@
+.servicesTable {
+  width: 100%;
+  /* border: 1px solid black; */
+  text-align: center;
+  margin: 0 auto;
+}
+.tableHead {
+  font-size: 1.3rem;
+  background-color: rgb(216, 207, 207);
+  height: 40px;
+}
+
+th,td {
+  height: 35px;
+}
+
+.serviceIcon {
+  font-size: 1.3rem;
+}
+
+.serviceIconButton {
+  font-size: 1.5rem;
+  color: rgb(110, 64, 73);
+  width: 40px;
+  background-color: ivory;
+  border: 1px solid rgb(106, 97, 97);
+ 
+}
+
+.serviceIconButton:hover {
+  color: rgb(206, 206, 206);
+  background-color: rgb(106, 97, 97);
+  border: none;
+}
+.serviceNav,
+.serviceStatus{
+    /* text-decoration: none; */
+    font-size: 1.2rem;
+    color:rgb(70, 70, 70) ;
+}
+.serviceNav:hover{
+    color:rgb(165, 66, 66)
+}

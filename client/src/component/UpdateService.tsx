@@ -4,6 +4,7 @@ import { updateService } from "../services/apiService";
 import { IService, serviceNames, statuses } from "./AddServices";
 import Header from "./Header";
 import Title from "./Title";
+import './UpdateService.css';
 
 function UpdateService() {
   let location = useLocation();
@@ -25,8 +26,6 @@ function UpdateService() {
     }
   };
 
-console.log("*");
-
   return (
     <>
       <Header></Header>
@@ -34,16 +33,10 @@ console.log("*");
         <h1>Update Service</h1>
         <h2>Mailing list</h2>
       </Title>
-      <span>{serviceNames[state.service.serviceName][1]}</span>
-      <select value={state.service.status}
-              onChange={(e) => setState({
-              service: {  
-                     status: Number.parseInt(e.target.value),
-                     serviceName: state.service.serviceName,
-                     msg: state.service.msg,
-                     _id: state.service._id
-                   },
-             disabled: false })}>
+
+      <div className="serviseName">{serviceNames[state.service.serviceName][1]}</div>
+      <select className="select" value={state.service.status}
+              onChange={(e) => setState({service: Object.assign(state.service, {status: Number.parseInt(e.target.value)}), disabled: false })}>
 
         {statuses.map((s) => (
           <option value={s[0]} key={s[0]}>
@@ -51,26 +44,9 @@ console.log("*");
           </option>
         ))}
       </select>
-      <p></p>
-      <textarea onChange={(e) => {
-            if(state.disabled){
-                   setState({
-                       service: {  
-                          status: state.service.status,
-                          serviceName: state.service.serviceName,
-                          msg: e.target.value,
-                         _id: state.service._id
-                         },
-                   disabled: false })}}}
-                onBlur={(e) => 
-                    setState({
-                       service: {  
-                          status: state.service.status,
-                          serviceName: state.service.serviceName,
-                          msg: e.target.value,
-                          _id: state.service._id
-                          },
-                     disabled: false })}>
+      {/* <p></p> */}
+      <textarea onChange={() => {if(state.disabled) setState(Object.assign(state, {disabled: false}))}}
+                onBlur={(e) => setState({service: Object.assign(state.service, {msg: e.target.value}), disabled: false})}>
 
         {/* {service.msg} */}
       </textarea>
