@@ -43,6 +43,10 @@ height: 3vh;
 }
 .login{
     color: rgb(120, 35, 42);
-   font-size: 1rem;
+   font-size: 2rem;
+}
 
+.signUp{
+    color: rgb(120, 35, 42);
+    font-size:1.5rem;
 }
