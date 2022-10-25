@@ -54,7 +54,7 @@ onSubmit: (res) => {
     }
 
       data.then((res) => {
-        if(res.status != 200){
+        if(res.status !== 200){
           signUpError = res;
           console.log(res);
         }else{
